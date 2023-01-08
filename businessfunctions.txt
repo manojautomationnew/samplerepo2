@@ -1,6 +1,7 @@
 package problemsofjava;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -227,10 +228,21 @@ package problemsofjava;
 import java.util.Arrays;
 
 public class Learning {
+=======
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class SimplePratice11 {
+
 
 	public static void main(String[] args) {
 
 		
+
 		  if(isAnagram("manoj", "jonam")) { System.out.println("it is anagram"); } else
 		  { System.out.println("it is not anagram"); }
 		  
@@ -254,15 +266,194 @@ public class Learning {
 
 	public static boolean isAnagram(String s1, String s2) {
 
+		HashMap<Integer,String> hm=new HashMap<>();
+		
+		String [] name="my name is manoj and my name is manoj and my name".split(" ");
+		
+		for(int i=0;i<name.length;i++) {
+			
+			hm.put(i, name[i]);
+		}
+		
+		System.out.println(hm.values());
+
+		String s="my name is manoj and my name is manoj and my name";
+		String[] d=s.split(" ");
+				List<String> ls=Arrays.asList(d);
+		
+		Map<String, Long> mp=ls.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		System.out.println(mp);
+		
+		Map<String, Long> m=hm.values().stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		
+		System.out.println(m);
+		
+	}
+
+}
+package problemsofjava;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class SimplePratice12 {
+
+	public static void main(String[] args) {
+
+//		Integer[] a = { 99, 88, 66, 77, 88, 55, 66, 33, 11, 22, 44, 558, 889,88,66,77,44,44,22,77,88 };
+		
+//		String  st="my name is manoj i can do anything manoj is do manoj";
+//		
+//		String [] ct=st.split(" ");
+//		
+//		
+//	for(int i=0;i<ct.length;i++) {
+//		
+//		
+//		if(!ct[i].equalsIgnoreCase(ct[i+1])){
+//		int b=Collections.frequency(Arrays.asList(ct),ct[i]);
+//		System.out.println(ct[i]+" = "+b);
+//	}
+//		
+//		
+//	}
+//		
+//		
+		
+		// first not repetitive character
+		
+	    String inputStr ="teeter";
+
+        
+			System.out.println("the first nonrepeater characer : "+findFirstNonRepeatedCharacter(inputStr));
+        
+        
+        
+        
+				
+			}
+		
+		
+		public static Character findFirstNonRepeatedCharacter(String s) {
+			
+			Map<Character,Integer> hm=new HashMap<Character,Integer>();
+			for(char a:s.toCharArray()) {
+				
+				hm.put(a, hm.containsKey(a)?hm.get(a)+1:1);
+			}
+			return hm.entrySet().stream().filter(x->x.getValue()==1).findFirst().get().getKey();
+			
+			
+			
+		}
+		
+		
+		
+		
+	}
+
+package problemsofjava;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class SimplePratice13 {
+
+	public static void main(String[] args) {
+
+
+//		
+//		char d=nonRepeatableFirstCharacter("manoj");
+//		
+//		System.out.println("non repeatable first character in given string : "+d);
+		
+		
+		String s="stress";
+		
+		
+		for(char c:s.toCharArray()) {
+			
+			if(s.lastIndexOf(c)==s.indexOf(c)){
+				System.out.println("it is not repeatable character : "+c);
+				break;
+			}
+			
+			
+		}
+		
+			
+		}
+
+	// non repeatable character
+	
+	public static Character nonRepeatableFirstCharacter(String s) {
+		
+		Map<Character,Integer> hm=new HashMap<Character,Integer>();
+		
+		for(char c:s.toCharArray()) {
+			
+			hm.put(c, hm.containsKey(c)?hm.get(c)+1:1);
+			
+		}
+		
+		return hm.entrySet().stream().filter(x->x.getValue()==1).findFirst().get().getKey();
+		
+		
+	}
+	
+	
+		
+		
+		
+	}
+
+package problemsofjava;
+
+import java.util.Arrays;
+
+public class SimplePratice2 {
+
+	public static void main(String[] args) {
+
+		
+		String s1="manoj";
+		String s2="jokam";
+		
+		
+		
+		if(isAnagrim(s1,s2)) {
+			
+			System.out.println("the given string is anagrim : "+s1+" "+s2);
+			
+		}
+		else {
+			System.out.println("it is not anagrim : "+s1+" "+s2);
+		}
+		
+		
+	}
+
+	public static boolean isAnagrim(String s1, String s2) {
+
+		boolean flag = true;
+
+
 		if (s1.length() != s2.length()) {
 			return false;
 		}
+
+
+
+		s1.toLowerCase();
+		s2.toLowerCase();
+
 
 		char[] c1 = s1.toCharArray();
 		char[] c2 = s2.toCharArray();
 
 		Arrays.sort(c2);
 		Arrays.sort(c1);
+
 
 //		String sc1 = new String(c1);
 //		String sc2 = new String(c2);
@@ -292,10 +483,19 @@ public class Learning {
 	 * }
 	 */
 
+
+		String cs1 = new String(c1);
+		String cs2 = new String(c2);
+		return cs1.equals(cs2);
+
+	}
+
+
 }
 package problemsofjava;
 
 import java.util.Arrays;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -456,15 +656,158 @@ public class Reversestring {
 				
 				System.out.println(name.charAt(i));
 				
+
+
+public class SimplePratice3 {
+
+	public static void main(String[] args) {
+
+		/*
+		 * // to reverse a number
+		 * 
+		 * int num = 89756, rev = 0;
+		 * 
+		 * System.out.println("before reverse : " + num);
+		 * 
+		 * StringBuilder sb=new StringBuilder().append(num).reverse();
+		 * 
+		 * System.out.println("after reverse : " + sb);
+		 */
+
+		
+		// program to counter the digits in number
+		
+		
+		/*
+		 * int num=456789,count=0;
+		 * 
+		 * 
+		 * while(num>0) {
+		 * 
+		 * 
+		 * count++;
+		 * 
+		 * num=num/10;
+		 * 
+		 * }
+		 * 
+		 * System.out.println("the no of digits in number : "+count);
+		 */
+		
+		
+		// checking year is a leap year or not
+		
+		
+		/*
+		 * int num=1900;
+		 * 
+		 * boolean flag=false;
+		 * 
+		 * if (num % 4 == 0) {
+		 * 
+		 * if (num % 100 == 0) {
+		 * 
+		 * if (num % 400 == 0) {
+		 * 
+		 * flag = true;
+		 * 
+		 * } else { flag = false; } } else flag=true;
+		 * 
+		 * } else { flag = false; }
+		 * 
+		 * if(flag==true) {
+		 * 
+		 * System.out.println("leap year");
+		 * 
+		 * } else { System.out.println("not leap year"); }
+		 * 
+		 */
+		
+		// recurrsive of number
+		
+		/*
+		 * int n=5;
+		 * 
+		 * int result=1;
+		 * 
+		 * 
+		 * for(int i=1;i<=5;i++) {
+		 * 
+		 * result =result*i; }
+		 * 
+		 * System.out.println(result);
+		 */
+		
+		// fibinacci series
+		
+		
+		
+		/*int n = 15;
+		long t1 = 0, t2 = 1;
+		int count = 0;
+		int i = 1;
+		while (i <= n) {
+
+			System.out.println(t1);
+			long num = t1 + t2;
+			t1 = t2;
+			t2 = num;
+			i++;
+
+			count++;
+		}
+		System.out.println("count = " + count); */   
+		
+		
+		// find the max in array
+		
+		/*int num[] = {8,89,2,454,54,5454,54545};
+		
+		Arrays.sort(num);
+		
+		int min=num[0];
+		
+		System.out.println(min); */ 
+
+		
+		
+		// find the second largest number in array
+		
+		
+		
+	/*	secondLargestNumber(a);
+		
+	}
+	
+	
+	public static void secondLargestNumber(int[] a ) {
+		
+		int size=a.length;
+		
+		Arrays.sort(a);
+		
+		
+		for(int i=size-2;i>=0;i--) {
+			
+			if(a[i]!=a[size-1]) {
+				
+				System.out.println("secondmax : "+a[i]);
+				return;
+
 				
 			}
 			
 			
 		}
+
+
+		System.out.println("there is no second largest no");
+
 		
 		
 		
 		
+
 		
 		
 		
@@ -533,3 +876,107 @@ public class SimplePratice10 {
 	}
 
 }
+
+		System.out.println("second Largest number in array : "+a[size-2]);
+		
+		
+		
+	}
+		
+		*/
+		
+		/*
+		int[] a= {2,122,128,102,33,44,55,66,78,89,99};
+		
+		int max=a[0];
+	
+		for(int i=1;i<=a.length-1;i++) {
+			
+			if(a[i]>max) {
+				
+				max=a[i];
+			}
+			
+		}
+		
+		System.out.println("max : "+max);
+		
+		
+		
+		
+		
+		
+	}*/
+	
+	 
+		int a[]={1,2,5,6,3,2};  
+		int b[]={44,66,99,77,33,22,55};  
+		System.out.println("Second Largest: "+getSecondLargest(a,6));  
+		System.out.println("Second Largest: "+getSecondLargest(b,7));  
+		}
+		
+
+public static int getSecondLargest(int[] a, int total){  
+int temp;  
+for (int i = 0; i < total; i++)   
+        {  
+            for (int j = i + 1; j < total; j++)   
+            {  
+                if (a[i] > a[j])   
+                {  
+                    temp = a[i];  
+                    a[i] = a[j];  
+                    a[j] = temp;  
+                }  
+            }  
+        }  
+       return a[total-2];  
+}  
+
+
+}
+package problemsofjava;
+
+public class SimplePratice5 {
+
+	public static void main(String[] args) {
+
+		// using star pattern
+		
+		int n=5;
+		
+		for (int i = 1; i < n; i++) {
+
+			for (int j = i; j <= n; j++) {
+				System.out.print("    ");
+			}
+			for (int j = 1; j < i; j++) {
+				System.out.print("*   ");
+			}
+			for (int j = 1; j <=i; j++) {
+				System.out.print("*   ");
+			}
+
+			System.out.println();
+		}
+
+		for (int i = 1; i <=n; i++) {
+
+			for (int j = 1; j <= i; j++) {
+				System.out.print("    ");
+			}
+			for (int j = i; j < n; j++) {
+				System.out.print("*   ");
+			}
+			for (int j = i; j <=n; j++) {
+				System.out.print("*   ");
+			}
+
+			System.out.println();
+		}
+
+	}
+
+}
+
+
