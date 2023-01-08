@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 manohar
 manoj
 dayakar
@@ -901,6 +902,8 @@ manoj
 dayakar
 done here remote
 =======
+=======
+>>>>>>> Stashed changes
 amar
 kavya
 priya
@@ -1801,5 +1804,9 @@ priya
 amar
 kavya
 priya
+<<<<<<< Updated upstream
+done here local
+>>>>>>> Stashed changes
+=======
 done here local
 >>>>>>> Stashed changes
