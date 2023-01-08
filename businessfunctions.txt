@@ -1,0 +1,535 @@
+package problemsofjava;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class FindingDuplicates {
+
+	public static void main(String[] args) {
+
+		HashMap<Integer,String> hm=new HashMap<>();
+		
+		hm.put(1, "manoj");
+		hm.put(2, "ranjith");
+		hm.put(3, "dandi");
+		hm.put(4, "bandi");
+		hm.put(5, "landi");
+		hm.put(6, "manoj");
+		hm.put(7, "dandi");
+		hm.put(8, "wandi");
+		hm.put(9, "gandi");
+		hm.put(10, "manoj");
+		System.out.println(hm);
+		
+		List<String> ls= new ArrayList<String> (hm.values());
+		
+		System.out.println(ls.size());
+		
+		System.out.println("----------------");
+		
+		Set<String> s=new HashSet<String>(hm.values());
+		
+		
+		System.out.println(s.size());
+		
+		
+		// duplicates are there or not
+		
+		if(ls.size()==s.size()) {
+			
+			System.out.println("duplicates are not there");
+			
+		}
+		else 
+		{
+			System.out.println("duplicates are there");
+		}
+		
+		
+		
+		
+	}
+
+}
+package problemsofjava;
+
+import java.util.HashSet;
+
+public class Javaprogram38 {
+
+	public static void main(String[] args) {
+		
+		int a[]= {100,122,121,133,133,144,144};
+		
+//		findDupicateInArray(a);
+		
+		
+		
+		HashSet<Integer> hs=new HashSet<Integer>();
+		
+		for(int b:a) {
+			if(hs.add(b)==false) {
+				System.out.println("duplicates found "+b);
+			}
+			
+		}
+		
+		
+		
+	}
+	
+	
+
+	public static void findDupicateInArray(int[] a) {
+        int count=0;
+        for(int j=0;j<a.length;j++) {
+            for(int k =j+1;k<a.length;k++) {
+                if(a[j]==a[k]) {
+                    count++;
+                }
+            }
+            if(count==1)
+               System.out.println(a[j]);
+            count = 0;
+        }
+    }
+
+
+
+
+}
+package problemsofjava;
+
+public class Javaprogram39 {
+
+	public static void main(String[] args) {
+		
+		// string is a palindrome or not
+
+		String d = "rajar";
+
+		d = d.toLowerCase();
+
+		if (ispalindrome(d)) {
+			System.out.println("it is a palindrome string");
+		} else {
+			System.out.println("it is not a palindrome string");
+		}
+
+	}
+
+	public static boolean ispalindrome(String s) {
+
+		int i = 0;
+		int j = s.length() - 1;
+
+		while (i < j) {
+
+			if (s.charAt(i) != s.charAt(j)) {
+				return false;
+			}
+
+			i++;
+			j--;
+
+		}
+
+		return true;
+
+	}
+}
+package problemsofjava;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+public class Lambdaexpression {
+
+ public static void main(String[] args) {
+
+	 
+//	 Predicate<Integer> pr=i->(i>20);
+//	 
+//	 System.out.println("the value here is : "+pr.test(25));
+	 
+	 
+		/*
+		 * List<String> al =
+		 * Arrays.asList("manoj","bad","little","that","good","by","moving","goodforyou"
+		 * );
+		 * 
+		 * 
+		 * // my req word should be > 4 and < 6
+		 * 
+		 * List<String> correct_word=al.stream().filter(a->a.length()>4 &&
+		 * a.length()<6).collect(Collectors.toList()); List<String>
+		 * correct_wording=al.stream().map(a->a+" i am good -> ").collect(Collectors.
+		 * toList()); al.stream().filter(a->a.length()>4 &&
+		 * a.length()<6).forEach(System.out::println);
+		 * 
+		 * System.out.println(correct_wording);
+		 */
+	 
+	 
+	 
+	List<String> numbers=Arrays.asList("manoj","amar","dravid","mass");
+	
+	List<String> after_filter=numbers.stream().filter(m->m.length()>2 && m.length()<5).collect(Collectors.toList());
+	numbers.stream().filter(m->m.length()>2 && m.length()<5).forEach(System.out::println);
+	/*
+	 * System.out.println(after_filter.get(0));
+	 * System.out.println(after_filter.get(1));
+	 * 
+	 * for(String ele: after_filter) { System.out.println(ele); }
+	 */
+	
+	
+	 List<Integer> arr=Arrays.asList(1,2,3,4,5,6,7,8,9);
+	 
+	Optional<Integer> max= arr.stream().max((a,b)->a.compareTo(b));
+	
+	System.out.println("maximum value in provided list : "+max.get());
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+//	 ArrayList<String>  al =new ArrayList<String>(Arrays.asList(arr));
+//	  
+//	 System.out.println(" the elements available here in : "+al);
+//	 
+//	 for(String e : al) {
+//		 System.out.println(e);
+//	 }
+//		 
+//	 System.out.println(al.contains("good"));
+//	 
+//	 
+//	 }
+//	 
+	 
+ }
+ }
+package problemsofjava;
+
+import java.util.Arrays;
+
+public class Learning {
+
+	public static void main(String[] args) {
+
+		
+		  if(isAnagram("manoj", "jonam")) { System.out.println("it is anagram"); } else
+		  { System.out.println("it is not anagram"); }
+		  
+		 
+//		
+//		String st="bagsksgab";
+//		
+//		char[] ch=st.toCharArray();
+//		
+//		for(Object a:ch) {
+//			System.out.println(a);
+//		}
+
+		/*
+		 * if(isPalindrome("jonojdfd")){
+		 * 
+		 * System.out.println("good"); } else { System.out.println("this is bad code");
+		 * }
+		 */
+	}
+
+	public static boolean isAnagram(String s1, String s2) {
+
+		if (s1.length() != s2.length()) {
+			return false;
+		}
+
+		char[] c1 = s1.toCharArray();
+		char[] c2 = s2.toCharArray();
+
+		Arrays.sort(c2);
+		Arrays.sort(c1);
+
+//		String sc1 = new String(c1);
+//		String sc2 = new String(c2);
+
+		return new String(c1).equals(new String(c2)) ;
+
+	}
+
+	/*
+	 * public static boolean istPalindrom(char[] word){ int i1 = 0; int i2 =
+	 * word.length - 1; while (i2 > i1) { if (word[i1] != word[i2]) { return false;
+	 * } ++i1; --i2; } return true; }
+	 */
+
+	/*
+	 * public static boolean isPalindrome(String s) {
+	 * 
+	 * 
+	 * // int i1=0; // int i2=cha.length-1; // // while(i2>i1) { // //
+	 * if(cha[i1]!=cha[i2]) { // // return false; // } // // ++i1; // --i2; // } //
+	 * // return true;
+	 * 
+	 * 
+	 * return s.equals(new StringBuffer(s).reverse().toString());
+	 * 
+	 * 
+	 * }
+	 */
+
+}
+package problemsofjava;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class Printevenandoddusingstreams {
+
+	
+	
+	
+	public static void main(String[] args) {
+		
+		/*
+		 * Long lan=IntStream.range(10,56).filter(e->e%2!=0).count();
+		 * System.out.println("count : "+lan);
+		 */
+		
+		// req find the no's starting with the 2
+		
+		List<Integer> num=Arrays .asList(21,23,25,454,5455,5445,5454,5454,588,5451,96,23,45,12,26,212,266);
+		/*
+		 * List<Integer>
+		 * startsWithTwo=num.stream().map(String::valueOf).filter(k->k.startsWith("2")).
+		 * map(Integer::valueOf).collect(Collectors.toList());
+		 * 
+		 * System.out.println(startsWithTwo.get(2).equals(25));
+		 */
+		/*
+		 * System.out.println(num.stream().map(String::valueOf).filter(e ->
+		 * e.startsWith("2")).map(Integer::valueOf) .collect(Collectors.toList()));
+		 */
+		
+		// display the duplicates
+		
+		/*
+		 * Set<Integer>
+		 * afterRemovingDuplicates=num.stream().filter(n->Collections.frequency(num,
+		 * n)>1).collect(Collectors.toSet());
+		 * System.out.println("the count of the duplicates in numbers : "
+		 * +afterRemovingDuplicates);
+		 */
+		
+		
+		// find max
+		
+		
+		
+//		System.out.println(" the minimum value in provided number : "+min(10,20,35));
+	
+	
+	/*static int min(int a, int b, int c) {
+		int min = 0;
+
+		while (a > 0 && b > 0 && c > 0) {
+
+			a--;
+			b--;
+			c--;
+			min++;
+
+		}
+
+		return min;
+
+	}*/
+	
+	
+	/*
+	 * System.out.println("the maximum value for the given list of numbers : "+
+	 * max(855,486,4545)); }
+	 * 
+	 * 
+	 * static long max(int a, int b, int c) {
+	 * 
+	 * int max = 0;
+	 * 
+	 * while (a > 0 || b > 0 || c > 0) {
+	 * 
+	 * a--; b--; c--; max++;
+	 * 
+	 * }
+	 * 
+	 * return max;
+	 */
+
+		// find the maximum among them
+		
+		List<Integer> numbers=Arrays.asList(258955,566,223,889,554,5454,2512,1545,454,515,454,5,545,4454);
+		
+	Optional<Integer> maxNum=	numbers.stream().reduce((a,b)->a-b);
+		
+		
+		System.out.println(maxNum.get());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+}
+	
+	
+}
+package problemsofjava;
+
+public class Reversestring {
+
+	public static void main(String[] args) {
+
+		// reverse a string 
+		
+//		String name="my name is manoj attending cognizant interview";
+		
+		/*
+		 * String [] stringArray=name.split(" ");      //   &&Character.isWhitespace(name.charAt(i)-1
+		 * 
+		 * // System.out.println(name.length());
+		 * 
+		 * System.out.print("the reversed string : "); for(int
+		 * i=0;i<stringArray.length;i++) {
+		 * 
+		 * for(int j=stringArray[i].length()-1;j>=0;j--) {
+		 * 
+		 * 
+		 * System.out.print(stringArray[i].charAt(j)); }
+		 * 
+		 * System.out.print(" "); }
+		 */
+		
+	
+//		String [] arrayString=name.split(" ");
+		
+		/*
+		 * for(String word:arrayString) {
+		 * 
+		 * for(int i=word.length()-1;i>=0;i--) {
+		 * 
+		 * System.out.print(word.charAt(i));
+		 * 
+		 * }
+		 * 
+		 * System.out.print(" "); }
+		 */
+		
+		
+		String name="my name is manoj attending cognizant interview";
+		
+		for(int i=0;i<name.length()-1;i++) {
+			
+			if(Character.isAlphabetic(name.charAt(i))) {
+				
+				System.out.println(name.charAt(i));
+				
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		}
+		
+		
+	}	
+	
+
+package problemsofjava;
+
+public class SimplePratice10 {
+
+	public static void main(String[] args) {
+
+		for (int i = 1; i <= 100; i++) {
+
+			if (isPrime(i)) {
+				System.out.println("this are prime numbers : " + i);
+
+			}
+		}
+
+	}
+
+	public static boolean isPrime(int n) {
+
+		if (n > 1) {
+
+			int count = 0;
+			for (int i = 1; i <= n; i++) {
+
+				if (n % i == 0) {
+
+					count++;
+				}
+
+			}
+			if (count == 2) {
+				return true;
+			}
+
+		}
+
+		return false;
+	}
+
+}
